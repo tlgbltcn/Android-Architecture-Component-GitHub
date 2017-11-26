@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="user"
+            type="com.example.tolga.githubmvvm.model.User" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@{user.name}"
+            android:textStyle="bold"
+            tools:text="name" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username"
+            android:layout_centerHorizontal="true"
+            android:text="@{user.email}"
+            android:visibility="@{user.email == null ? View.GONE : View.VISIBLE}" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_email"
+            android:layout_centerHorizontal="true"
+            android:text="@{user.bio}" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_bio"
+            android:gravity="center_horizontal"
+            android:text="@{user.location}" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/txt_location"
+            android:layout_marginTop="16dp" />
+
+    </RelativeLayout>
+
+</layout>
